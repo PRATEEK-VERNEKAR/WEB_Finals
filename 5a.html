@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pluralize Function</title>
+    <script>
+        function pluralize(noun, number) {
+            const collectiveNouns = {
+                sheep: "sheep",
+                goose: "geese",
+                deer: "deer"
+            };
+
+            let pluralNoun;
+            if (collectiveNouns[noun]) {
+                pluralNoun = collectiveNouns[noun];
+            } else {
+                pluralNoun = number === 1 ? noun : noun + 's';
+            }
+
+            return `${number} ${pluralNoun}`;
+        }
+
+        function displayResult() {
+            const noun = document.getElementById("noun").value;
+            const number = parseInt(document.getElementById("number").value);
+            const result = pluralize(noun, number);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Pluralize Function</h1>
+    <label for="noun">Noun:</label>
+    <input type="text" id="noun" placeholder="Enter a noun" required>
+    <br>
+    <label for="number">Number:</label>
+    <input type="number" id="number" placeholder="Enter a number" required>
+    <br>
+    <button onclick="displayResult()">Pluralize</button>
+    <h2 id="result"></h2>
+</body>
+</html>
