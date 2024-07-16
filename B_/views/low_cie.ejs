@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students with CIE < 20</title>
+</head>
+<body>
+    <h1>Students with CIE < 20</h1>
+    <ul>
+        <% students.forEach(student => { %>
+            <li><%= student.name %> (USN: <%= student.usn %>, CIE: <%= student.cie %>)</li>
+        <% }) %>
+    </ul>
+    <a href="/">Back</a>
+</body>
+</html>
